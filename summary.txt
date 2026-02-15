@@ -1,0 +1,17 @@
+I first used the Console in the Firefox Developer tools to see the first error. It was an Uncaught TypeError: can't access property "price", 
+cartItems[i] is undefined. So I knew it would be in the loop that called cartItems[i], and the Console also said it was in the calculateTotal
+function block.  So I changed for (let i = 0; i <= cartItems.length; i++) to for (let i = 0; i < cartItems.length; i++). That fixed the most
+jarring error. 
+
+For edge cases:
+    - For an empty cart, I put if (cartItems.length == 0) return `No items in cart.`; to show that the user didn't get anything. I'm 
+    not sure if I was supposed to return something else. 
+    - For one item in a the cart, the functions worked just fine.
+    - I changed it so that if the total argument in the generateReceipt function, I made sure to check that the typeof total was a 
+    number. If not, it will give the user a public error message. 
+    - The discount being 0 or 1 works fine, IF we're okay with giving 0% and 100% discounts. However, to make it easier, I made the
+    discount a global variable instead of being mentioned once in applyDiscount function. I also made another DOM call to show the 
+    user what their actual applied discount is. 
+
+I mostly used console.log() statements and read them in the Console in Firefox Developer Tools to help me debug these issues. It was 
+very helpful. 
